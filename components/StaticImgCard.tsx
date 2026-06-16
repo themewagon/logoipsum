@@ -10,6 +10,6 @@ export default function StaticImage(props: StaticImageProps) {
 const StyledImage = styled.img`
   display: block;
   height: auto;
-  width: 100%;
+  width: 40%;
   object-fit: cover;
 `;

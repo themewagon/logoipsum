@@ -1,5 +1,5 @@
-import StaticImage from 'components/StaticImage';
 import styled from 'styled-components';
+import StaticImgCard from 'components/StaticImgCard';
 
 interface BasicCardProps {
   title: string;
@@ -10,7 +10,7 @@ interface BasicCardProps {
 export default function BasicCard({ title, description, imageUrl }: BasicCardProps) {
   return (
     <Card>
-      <StaticImage src={imageUrl} alt={title} />
+      <StaticImgCard src={imageUrl} alt={title} />
       <Title>{title}</Title>
       <Description>{description}</Description>
     </Card>

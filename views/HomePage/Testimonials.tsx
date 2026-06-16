@@ -1,4 +1,4 @@
-import StaticImage from 'components/StaticImage';
+import StaticImgCard from 'components/StaticImgCard';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -47,14 +47,14 @@ export default function Testimonials() {
           {TESTIMONIALS.map((singleTestimonial, idx) => (
             <SwiperSlide key={idx}>
               <TestimonialCard>
-                <StaticImage
+                <StyledStaticImgCard
                   src={singleTestimonial.companyLogoUrl}
                   alt={`${singleTestimonial.author.name}'s company logo`}
                 />
                 <Content>“{singleTestimonial.content}”</Content>
                 <AuthorContainer>
                   <AuthorImageContainer>
-                    <StaticImage src={singleTestimonial.author.avatarUrl} alt={singleTestimonial.author.name} />
+                    <StaticImgCard src={singleTestimonial.author.avatarUrl} alt={singleTestimonial.author.name} />
                   </AuthorImageContainer>
                   <AuthorContent>
                     <AuthorName>{singleTestimonial.author.name}</AuthorName>
@@ -141,4 +141,8 @@ const AuthorImageContainer = styled.div`
   border-radius: 10rem;
   margin-right: 1rem;
   overflow: hidden;
+`;
+const StyledStaticImgCard = styled(StaticImgCard)`
+  width: 15%;
+  border-radius: 10rem;
 `;
