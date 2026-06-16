@@ -1,4 +1,4 @@
-import NextImage from 'next/image';
+import StaticImage from 'components/StaticImage';
 import NextLink from 'next/link';
 import styled from 'styled-components';
 import { media } from 'utils/media';
@@ -16,7 +16,7 @@ export default function ArticleCard({ title, slug, imageUrl, description }: Arti
       <ArticleCardWrapper className="article-card-wrapper">
         <HoverEffectContainer>
           <ImageContainer>
-            <NextImage src={imageUrl} layout="fill" objectFit="cover" alt={title} />
+            <StaticImage src={imageUrl} alt={title} />
           </ImageContainer>
           <Content>
             <Title>{title}</Title>
@@ -61,7 +61,6 @@ const ImageContainer = styled.div`
     display: block;
     content: '';
     width: 100%;
-    padding-top: calc((9 / 16) * 100%);
   }
 
   & > div {

@@ -17,6 +17,7 @@ import NavigationDrawer from 'components/NavigationDrawer';
 import NewsletterModal from 'components/NewsletterModal';
 import WaveCta from 'components/WaveCta';
 import { NewsletterModalContextProvider, useNewsletterModalContext } from 'contexts/newsletter-modal.context';
+import { EnvVars } from 'env';
 import { NavItems } from 'types';
 
 const navItems: NavItems = [
@@ -34,7 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="icon" type="image/png" href={`/favicon.png`} />
         {/* <link rel="alternate" type="application/rss+xml" href={EnvVars.URL + 'rss'} title="RSS 2.0" /> */}
         {/* <script
           dangerouslySetInnerHTML={{

@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { Components, TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { media } from 'utils/media';
 import ArticleImage from './ArticleImage';
 import Code from './Code';
 import Link from './Link';
 import Quote from './Quote';
 
-export default function RichText(props: { content: TinaMarkdownContent | TinaMarkdownContent[] }) {
+export default function RichText(props: { content: MDXRemoteSerializeResult }) {
   return (
     <Container>
-      <TinaMarkdown content={props.content} components={components as Components<{}>} />
+      <MDXRemote {...props.content} components={components as any} />
     </Container>
   );
 }

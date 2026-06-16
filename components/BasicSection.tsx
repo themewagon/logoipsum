@@ -1,4 +1,4 @@
-import NextImage from 'next/image';
+import StaticImage from 'components/StaticImage';
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
@@ -17,7 +17,7 @@ export default function BasicSection({ imageUrl, title, overTitle, reversed, chi
   return (
     <BasicSectionWrapper reversed={reversed}>
       <ImageContainer>
-        <NextImage src={imageUrl} alt={title} layout="fill" objectFit="cover" />
+        <StaticImage src={imageUrl} alt={title} />
       </ImageContainer>
       <ContentContainer>
         <CustomOverTitle>{overTitle}</CustomOverTitle>
@@ -53,7 +53,6 @@ const ImageContainer = styled.div`
     display: block;
     content: '';
     width: 100%;
-    padding-top: calc((9 / 16) * 100%);
   }
 
   & > div {

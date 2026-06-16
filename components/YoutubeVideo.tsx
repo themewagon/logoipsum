@@ -84,7 +84,6 @@ export const VideoContainer = styled.div`
     display: block;
     content: '';
     width: 100%;
-    padding-top: 56.25%;
   }
 `;
 

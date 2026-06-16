@@ -1,4 +1,4 @@
-import NextImage from 'next/image';
+import StaticImage from 'components/StaticImage';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -10,30 +10,30 @@ import { media } from 'utils/media';
 
 const TESTIMONIALS = [
   {
-    companyLogoUrl: '/testimonials/company-logo-1.svg',
+    companyLogoUrl: '/logoipsum/testimonials/company-logo-1.svg',
     content: `Really good. I am so pleased with this product. I didn't even need training.`,
     author: {
       name: 'Clyde Edwards',
       title: 'Very Serious Man',
-      avatarUrl: '/testimonials/author-photo-1.jpeg',
+      avatarUrl: '/logoipsum/testimonials/author-photo-1.jpeg',
     },
   },
   {
-    companyLogoUrl: '/testimonials/company-logo-2.svg',
+    companyLogoUrl: '/logoipsum/testimonials/company-logo-2.svg',
     content: `It's really wonderful. I use saas product often. Thank You! Saas product has really helped our business.`,
     author: {
       name: 'Jimmy Hunter',
       title: 'Sigma Male University Graduate',
-      avatarUrl: '/testimonials/author-photo-2.jpeg',
+      avatarUrl: '/logoipsum/testimonials/author-photo-2.jpeg',
     },
   },
   {
-    companyLogoUrl: '/testimonials/company-logo-3.svg',
+    companyLogoUrl: '/logoipsum/testimonials/company-logo-3.svg',
     content: `Since I invested in saas product I made over 100,000 dollars profits. It really saves me time and effort. saas product is exactly what our business has been lacking.`,
     author: {
       name: 'Marjorie Morgan',
       title: 'Chief Chad Officer',
-      avatarUrl: '/testimonials/author-photo-3.jpeg',
+      avatarUrl: '/logoipsum/testimonials/author-photo-3.jpeg',
     },
   },
 ];
@@ -47,16 +47,14 @@ export default function Testimonials() {
           {TESTIMONIALS.map((singleTestimonial, idx) => (
             <SwiperSlide key={idx}>
               <TestimonialCard>
-                <NextImage
+                <StaticImage
                   src={singleTestimonial.companyLogoUrl}
                   alt={`${singleTestimonial.author.name}'s company logo`}
-                  width={200}
-                  height={40}
                 />
                 <Content>“{singleTestimonial.content}”</Content>
                 <AuthorContainer>
                   <AuthorImageContainer>
-                    <NextImage src={singleTestimonial.author.avatarUrl} alt={singleTestimonial.author.name} width={48} height={48} />
+                    <StaticImage src={singleTestimonial.author.avatarUrl} alt={singleTestimonial.author.name} />
                   </AuthorImageContainer>
                   <AuthorContent>
                     <AuthorName>{singleTestimonial.author.name}</AuthorName>

@@ -7,7 +7,11 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  basePath: '/logoipsum',
+  assetPrefix: '/logoipsum/',
+  trailingSlash: true,
   images: {
+    unoptimized: true,
     domains: ['github.blog'],
     deviceSizes: [320, 640, 1080, 1200],
     imageSizes: [64, 128],

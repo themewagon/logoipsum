@@ -20,13 +20,7 @@ export default function FormSection() {
 
   async function onSubmit(payload: EmailPayload) {
     try {
-      const res = await fetch('/api/sendEmail', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ subject: 'Email from contact form', ...payload }),
-      });
+      const res = await fetch('/sendEmailResponse.json');
 
       if (res.status !== 204) {
         setHasErrored(true);

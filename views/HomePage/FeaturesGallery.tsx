@@ -1,4 +1,4 @@
-import NextImage from 'next/image';
+import StaticImage from 'components/StaticImage';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Collapse from 'components/Collapse';
@@ -13,7 +13,7 @@ const TABS = [
     title: 'Find relevant media contacts - multiline title',
     description:
       '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-3.png',
+    imageUrl: '/logoipsum/demo-illustration-3.png',
     baseColor: '249,82,120',
     secondColor: '221,9,57',
   },
@@ -21,7 +21,7 @@ const TABS = [
     title: 'Another amazing feature',
     description:
       '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-4.png',
+    imageUrl: '/logoipsum/demo-illustration-4.png',
     baseColor: '57,148,224',
     secondColor: '99,172,232',
   },
@@ -29,7 +29,7 @@ const TABS = [
     title: 'And yet... another truly fascinating feature',
     description:
       '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-5.png',
+    imageUrl: '/logoipsum/demo-illustration-5.png',
     baseColor: '88,193,132',
     secondColor: '124,207,158',
   },
@@ -44,7 +44,7 @@ export default function FeaturesGallery() {
 
     return (
       <ImageContainer key={singleTab.title} isActive={isActive}>
-        <NextImage src={singleTab.imageUrl} alt={singleTab.title} layout="fill" objectFit="contain" priority={isFirst} />
+        <StaticImage src={singleTab.imageUrl} alt={singleTab.title} />
       </ImageContainer>
     );
   });
@@ -137,7 +137,6 @@ const ImageContainer = styled.div<{ isActive: boolean }>`
     display: block;
     content: '';
     width: 100%;
-    padding-top: calc((9 / 16) * 100%);
   }
 
   & > div {
