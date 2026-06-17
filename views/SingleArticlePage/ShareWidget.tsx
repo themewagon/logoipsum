@@ -14,13 +14,13 @@ export default function ShareWidget({ title, slug }: ShareWidgetProps) {
 
   return (
     <Wrapper>
-      <FacebookShareButton title={shareMessage} url={currentUrl}>
+      <FacebookShareButton title={shareMessage} url={'#!'} openShareDialogOnClick={false}>
         <FacebookIcon />
       </FacebookShareButton>
-      <TwitterShareButton title={shareMessage} url={currentUrl}>
+      <TwitterShareButton title={shareMessage} url={'#!'} openShareDialogOnClick={false}>
         <TwitterIcon />
       </TwitterShareButton>
-      <LinkedinShareButton title={shareMessage} url={currentUrl}>
+      <LinkedinShareButton title={shareMessage} url={'#!'} openShareDialogOnClick={false}>
         <LinkedinIcon />
       </LinkedinShareButton>
     </Wrapper>
