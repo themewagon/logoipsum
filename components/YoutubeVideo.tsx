@@ -20,33 +20,43 @@ export default function YoutubeVideo(props: YoutubeVideoProps) {
   
   html,
   body {
-    height: 100%
+    height: 100%;
+    width: 100%;
+    background: #000;
   }
   
-  img,
-  span {
+  .thumbnail {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
-    bottom: 0;
-    margin: auto;
-  }
-
-  .thumbnail {
+    left: 0;
     object-fit: cover;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
   }
   
+  a:hover .thumbnail {
+    opacity: 0.9;
+  }
+
   .play {
-    display: flex;
-    justify-content: center;
-    display: block;
-    height: 10vw;
-    width: 100%;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-in-out;
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.5));
+  }
+  
+  a:hover .play {
+    transform: translate(-50%, -50%) scale(1.15);
   }
   </style>
-  <a style="color: rgb(var(--primary))" href=https://www.youtube.com/embed/${videoHash}?autoplay=1>
-    <img class="thumbnail" src="https://img.youtube.com/vi/${videoHash}/hqdefault.jpg" alt='${title || ''}'>
+  <a href="https://www.youtube.com/embed/${videoHash}?autoplay=1">
+    <img class="thumbnail" src="https://img.youtube.com/vi/${videoHash}/hqdefault.jpg" alt="${title || ''}">
     <img class="play" src="${playIcon}" alt="Play the video">
   </a>`;
   return (
@@ -68,9 +78,15 @@ export default function YoutubeVideo(props: YoutubeVideoProps) {
 }
 
 function extractVideoHashFromUrl(url: string) {
-  const videoHashQueryParamKey = 'v';
-  const searchParams = new URL(url).search;
-  return new URLSearchParams(searchParams).getAll(videoHashQueryParamKey);
+  try {
+    const parsedUrl = new URL(url);
+    if (parsedUrl.hostname === 'youtu.be') {
+      return parsedUrl.pathname.substring(1);
+    }
+    return parsedUrl.searchParams.get('v') || '';
+  } catch (error) {
+    return '';
+  }
 }
 
 export const VideoContainer = styled.div`
@@ -84,6 +100,7 @@ export const VideoContainer = styled.div`
     display: block;
     content: '';
     width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
   }
 `;
 
@@ -96,3 +113,4 @@ const VideoFrame = styled.iframe`
   width: 100%;
   height: 100%;
 `;
+

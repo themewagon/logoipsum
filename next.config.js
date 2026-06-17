@@ -9,6 +9,7 @@ module.exports = withBundleAnalyzer({
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   basePath: '/logoipsum',
   assetPrefix: '/logoipsum/',
+  output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true,
