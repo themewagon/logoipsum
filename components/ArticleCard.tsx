@@ -78,7 +78,7 @@ const ImageContainer = styled.div`
 
 const Content = styled.div`
   padding: 0 2rem;
-
+  margin-top: 3rem;
   & > * {
     margin-top: 2rem;
   }
